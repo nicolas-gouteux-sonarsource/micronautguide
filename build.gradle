@@ -1,0 +1,89 @@
+plugins {
+    id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("io.micronaut.application") version "3.6.7"
+    id "org.sonarqube" version "3.5.0.2730"
+}
+
+sonarqube {
+    properties {
+        property "sonar.scm.disabled", "true"
+        property "sonar.projectKey", "mini2"
+        //property "sonar.organization", "default-organization"
+
+        property "sonar.host.url", "https://squad-1-core.sc-dev.io"
+        property "sonar.organization", "nicolas-gouteux-sonarsource"
+        //export SONAR_TOKEN=d2e396e2051116cc7084512dc092c37410b2e5a9
+        // mini2 token remote e876430d68a8c3953c152e8b912621061635b686
+
+        //property "sonar.host.url", "https://ngx2.eu.ngrok.io/"
+        //property "sonar.plugins.origin", "local"
+        // export S3_FROM_LOCAL=true IN CORE LAUNCH WINDOW!!!
+        // export SONAR_TOKEN=346d0b6e294417ba6ae5b8b99f7d51b625cc5140
+
+        // toto2 token e64e1a8d186423df3a4e7e90d717793c7fd73550
+        // mini2 token local 68ef6d979567aee1475b535e48a5d2f7880b38b2
+
+        //property "sonar.scm.provider", "git"
+    }
+}
+
+version = "0.1"
+group = "example.micronaut"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    annotationProcessor("io.micronaut:micronaut-http-validation")
+    // swagger 1
+    annotationProcessor("io.micronaut.openapi:micronaut-openapi:4.8.1")
+
+    implementation("io.micronaut:micronaut-http-client")
+    implementation("io.micronaut:micronaut-jackson-databind")
+    implementation("jakarta.annotation:jakarta.annotation-api")
+
+    implementation group: 'software.amazon.awssdk', name: 's3', version: '2.19.15'
+    implementation('software.amazon.awssdk:sts:2.19.17')
+
+//    implementation group: 'software.amazon.awssdk', name: 'netty-nio-client', version: '2.19.15'
+//    implementation group: 'software.amazon.awssdk', name: 'apache-client', version: '2.19.15'
+//    implementation group: 'software.amazon.awssdk', name: 'sts', version: '2.19.15'
+//
+    //implementation('com.amazonaws:aws-java-sdk-s3:2.7.16')
+
+    // required to resolve credentials using correct IAM role for the AWS_PROFILE env var
+//    runtimeOnly("software.amazon.awssdk:sts")
+//    runtimeOnly("software.amazon.awssdk:auth")
+
+    // swagger 2
+    implementation("io.swagger.core.v3:swagger-annotations")
+
+    runtimeOnly("ch.qos.logback:logback-classic")
+    compileOnly("org.graalvm.nativeimage:svm")
+
+    implementation("io.micronaut:micronaut-validation")
+
+}
+
+
+application {
+    mainClass.set("example.micronaut.Application")
+}
+java {
+    sourceCompatibility = JavaVersion.toVersion("11")
+    targetCompatibility = JavaVersion.toVersion("11")
+}
+
+graalvmNative.toolchainDetection = false
+micronaut {
+    runtime("netty")
+    testRuntime("junit5")
+    processing {
+        incremental(true)
+        annotations("example.micronaut.*")
+    }
+}
+
+
+

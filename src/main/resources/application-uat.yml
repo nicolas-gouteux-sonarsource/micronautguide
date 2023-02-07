@@ -1,0 +1,6 @@
+micronaut.environments: uat
+greeting.message2: UAT
+
+---
+micronaut.environments: uat2
+greeting.message2: UAT2222222

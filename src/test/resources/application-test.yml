@@ -1,0 +1,12 @@
+micronaut:
+  application:
+    name: micronautguide
+
+greeting:
+  message1: Hello from
+  message2: UNIT TEST
+
+netty:
+  default:
+    allocator:
+      max-order: 3
