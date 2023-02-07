@@ -14,6 +14,8 @@ sonarqube {
         //export SONAR_TOKEN=d2e396e2051116cc7084512dc092c37410b2e5a9
         // mini2 token remote e876430d68a8c3953c152e8b912621061635b686
 
+        property "sonar.pullrequest.key", "1"
+        property "sonar.pullrequest.branch", "a_new_branch"
         property "sonar.organization", "default-organization"
         property "sonar.host.url", "https://ngx2.eu.ngrok.io/"
         property "sonar.plugins.origin", "local"
