@@ -21,14 +21,13 @@ import software.amazon.awssdk.services.s3.model.NoSuchBucketException;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 import software.amazon.awssdk.services.s3.waiters.S3Waiter;
 
-public class BucketExample15 {
+public class BucketExample1399 {
 
   public static void main(String[] args) throws IOException {
     String bucketName = "ngx-bucket-dev";
     String key = "myKey";
-    String anotehrUnusedString;
-    String anotehrUnusedString14;
-    String anotehrUnusedString16;
+    String anotehrUnusedStringAvvvA;
+    String anotehrUnusedStringbcdsa;
 
     try {
 

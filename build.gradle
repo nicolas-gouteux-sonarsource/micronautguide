@@ -7,16 +7,20 @@ plugins {
 sonarqube {
     properties {
         property "sonar.scm.disabled", "true"
-        property "sonar.projectKey", "mini2"
+        property "sonar.projectKey", "mini6"
 
         //property "sonar.host.url", "https://squad-1-core.sc-dev.io"
         //property "sonar.organization", "nicolas-gouteux-sonarsource"
         //export SONAR_TOKEN=d2e396e2051116cc7084512dc092c37410b2e5a9
         // mini2 token remote e876430d68a8c3953c152e8b912621061635b686
+        // mini3 token local 3268b7f9159ae26dfc7c5cb4e0cdd489027e74ef
+        // mini4 3786efbd3abeb86b01f5931c71cf4111f873c808
+        // mini5 f5bc89cbce4902ee67aa8a59b2127615e0736f93
+        // mini6 export SONAR_TOKEN=0c195ae30b60f05aed21b64752faa435c45bb977
 
-        property "sonar.pullrequest.key", "1"
-        property "sonar.pullrequest.branch", "a_new_branch"
-        property "sonar.organization", "default-organization"
+        //property "sonar.pullrequest.key", "1"
+        //property "sonar.pullrequest.branch", "a_new_branch"
+        property "sonar.organization", "sonarsource"
         property "sonar.host.url", "https://ngx2.eu.ngrok.io/"
         property "sonar.plugins.origin", "local"
         // export S3_FROM_LOCAL=true IN CORE LAUNCH WINDOW!!!

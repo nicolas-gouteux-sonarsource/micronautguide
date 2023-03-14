@@ -12,7 +12,9 @@ import jakarta.inject.Inject;
 import javax.validation.constraints.NotBlank;
 
 @Controller("/hello/{name}") // <1>
-public class HelloController {
+public class
+
+  HelloController {
 
     @Value("${greeting.message1}")
     private String message1;
